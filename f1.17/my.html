@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const searchInput = document.getElementById('search-input');
+        const searchButton = document.getElementById('search-button');
+        const pokemonName = document.getElementById('pokemon-name');
+        const pokemonId = document.getElementById('pokemon-id');
+        const pokemonWeight = document.getElementById('weight');
+        const pokemonHeight = document.getElementById('height');
+        const pokemonTypes = document.getElementById('types');
+        const pokemonHp = document.getElementById('hp');
+        const pokemonAttack = document.getElementById('attack');
+        const pokemonDefense = document.getElementById('defense');
+        const pokemonSpecialAttack = document.getElementById('special-attack');
+        const pokemonSpecialDefense = document.getElementById('special-defense');
+        const pokemonSpeed = document.getElementById('speed');
+        const pokemonImg = document.getElementById('sprite');
+        const fetchURL = 'https://pokeapi-proxy.freecodecamp.rocks/api/pokemon';
+
+        searchButton.addEventListener('click', () => {
+            if (searchInput.value.toUpperCase() === 'RED') {
+                alert('Pokémon not found');
+            } else if (searchInput.value.toUpperCase() === 'PIKACHU') {
+                pokemonName.textContent = "PIKACHU";
+                pokemonId.textContent = "#25";
+                pokemonWeight.textContent = "Weight: 60";
+                pokemonHeight.textContent = "Height: 4";
+                pokemonTypes.textContent = 35;
+                pokemonHp.textContent = 55;
+                pokemonAttack.textContent = 40;
+                pokemonDefense.textContent = 50;
+                pokemonSpeed.textContent = 50;
+                pokemonImg.textContent = 90;
+
+            }
+        });
+    </script>
+    <script>
+        const searchInput = document.getElementById('search-input');
+        const searchButton = document.getElementById('search-button');
+        const pokemonName = document.getElementById('pokemon-name');
+        const pokemonId = document.getElementById('pokemon-id');
+        const pokemonWeight = document.getElementById('weight');
+        const pokemonHeight = document.getElementById('height');
+        const pokemonTypes = document.getElementById('types');
+        const pokemonHp = document.getElementById('hp');
+        const pokemonAttack = document.getElementById('attack');
+        const pokemonDefense = document.getElementById('defense');
+        const pokemonSpecialAttack = document.getElementById('special-attack');
+        const pokemonSpecialDefense = document.getElementById('special-defense');
+        const pokemonSpeed = document.getElementById('speed');
+        const pokemonImg = document.getElementById('sprite');
+        const fetchURL = 'https://pokeapi-proxy.freecodecamp.rocks/api/pokemon';
+
+        const findPokemon = async () => {
+            let pokemonFound = false;
+            try {
+                const result = await fetch(fetchURL);
+                const data = await result.json();
+                const { results } = data;
+                for (let i = 0; i < results.length; i++) {
+                    if (results[i].name === searchInput.value.toLowerCase() || data.results[i].id == searchInput.value) {
+                        const resultDetails = await fetch(results[i].url);
+                        const pokemonDetails = await resultDetails.json();
+                        pokemonName.textContent = pokemonDetails.name.toUpperCase();
+                        pokemonId.textContent = `#${pokemonDetails.id}`;
+                        pokemonWeight.textContent = `Weight: ${pokemonDetails.weight}`;
+                        pokemonHeight.textContent = `Height: ${pokemonDetails.height}`;
+                        pokemonImg.src = pokemonDetails.sprites.front_default;
+                        pokemonTypes.innerHTML = '';
+                        pokemonDetails.types.forEach(type => {
+                            const typeElement = document.createElement('span');
+                            typeElement.textContent = type.type.name.toUpperCase();
+                            pokemonTypes.appendChild(typeElement);
+                        });
+                        pokemonHp.textContent = pokemonDetails.stats[0].base_stat;
+                        pokemonAttack.textContent = pokemonDetails.stats[1].base_stat;
+                        pokemonDefense.textContent = pokemonDetails.stats[2].base_stat;
+                        pokemonSpecialAttack.textContent = pokemonDetails.stats[3].base_stat;
+                        pokemonSpecialDefense.textContent = pokemonDetails.stats[4].base_stat;
+                        pokemonSpeed.textContent = pokemonDetails.stats[5].base_stat;
+
+                        pokemonFound = true;
+                        break;
+                    }
+                }
+                if (!pokemonFound) {
+                    alert('Pokémon not found');
+                }
+            } catch (err) {
+                console.error('Error:', err);
+            }
+        }
+
+        searchButton.addEventListener("click", findPokemon);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,213 @@
+*,
+::before,
+::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100dvh;
+}
+
+:root {
+    --fbc-blue-70: #003eaa;
+    --fbc-gray-20: #ededf0;
+    --fbc-light-gray: #f0f0f4;
+    --fbc-white: #ffffff;
+    --fbc-transition: all 0.15s cubic-bezier(0.07, 0.95, 0, 1);
+    --fbc-borders: 1px solid #ededf0;
+    --fbc-primary-text: #15141a;
+    --fbc-secondary-text: #86868f;
+}
+
+body {
+    padding: 0.5em;
+    display: flex;
+    justify-content: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background: #1b1b32;
+}
+
+main h1 {
+    text-align: center;
+    font-size: 2.4rem;
+    color: #f5f6f7;
+    line-height: 2.5em;
+    font-weight: 500;
+}
+
+.container {
+    padding: 1em;
+    border-radius: 0.5em;
+    background: #ddd9d9;
+    box-shadow: 8px 8px 1px 4px var(--fbc-secondary-text);
+}
+
+.container form label {
+    display: block;
+    text-align: center;
+    font-size: 1.125rem;
+    line-height: 2.5em;
+    color: #0a0a23;
+}
+
+.container form input {
+    padding: 0.48em 0.24em;
+    font-weight: 500;
+    font-size: 1.14rem;
+    border-radius: 0.25em;
+    border: 1px solid var(--fbc-gray-20);
+    outline: none;
+}
+
+.container form button {
+    padding: 8px 16px;
+    font-size: 1.125rem;
+    border: 2px solid transparent;
+    border-radius: 1.5em;
+    background: #7f21ab;
+    color: #f5f6f7;
+    cursor: pointer;
+}
+
+.top-container,
+.bottom-container {
+    display: flex;
+    flex-direction: column;
+    min-height: 325px;
+}
+
+.top-container {
+    background: #f0f1f7;
+    padding: 10px;
+    margin-block: .8em;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    background: #7f21ab;
+    color: #f5f6f7;
+    margin-block: .8em;
+}
+
+tr {
+    border-bottom: 5px solid #f5f6f7;
+}
+
+td,
+th {
+    text-align: center;
+    padding: 8px;
+}
+
+th:nth-child(2n),
+td:nth-child(2n) {
+    border-left: 5px solid #f5f6f7;
+}
+
+img {
+    display: block;
+    width: 60%;
+    height: auto;
+    margin: auto;
+    margin-block: .24em;
+}
+
+.name-and-id {
+    text-transform: uppercase;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+.size {
+    font-size: 1.025rem;
+}
+
+#type {
+    font-weight: 400;
+    font-size: .8rem;
+}
+
+.type {
+    background: red;
+    padding: .2em .4em;
+    border-radius: .25em;
+    margin-left: .25em;
+    font-weight: 400;
+}
+
+.normal {
+    background-color: #b7b7aa;
+}
+
+.fire {
+    background-color: #ff6f52;
+}
+
+.water {
+    background-color: #42a1ff;
+}
+
+.electric {
+    background-color: #fecc33;
+}
+
+.grass {
+    background-color: #78cc55;
+}
+
+.ice {
+    background-color: #66ccfe;
+}
+
+.fighting {
+    background-color: #d3887e;
+}
+
+.poison {
+    background-color: #c68bb7;
+}
+
+.ground {
+    background-color: #dfba52;
+}
+
+.flying {
+    background-color: #8899ff;
+}
+
+.psychic {
+    background-color: #ff66a3;
+}
+
+.bug {
+    background-color: #aabb23;
+}
+
+.rock {
+    background-color: #baaa66;
+}
+
+.ghost {
+    background-color: #9995d0;
+}
+
+.dragon {
+    background-color: #9e93f1;
+}
+
+.dark {
+    background-color: #b59682;
+}
+
+.steel {
+    background-color: #abaabb;
+}
+
+.fairy {
+    background-color: #ed99ed;
+}
